@@ -4,6 +4,8 @@ from django.urls import path
 from shop.consumers import EchoConsumer, LncConsumer, WorkerConsumer, HostConsumer
 from shop.token_auth import TokenInHeaderOrCookieAuthMiddlewareStack
 
+
+
 application = ProtocolTypeRouter({
     'websocket': TokenInHeaderOrCookieAuthMiddlewareStack(
         URLRouter([
