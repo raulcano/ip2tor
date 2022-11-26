@@ -20,7 +20,7 @@ env.read_env()
 
 # Celery settings
 CELERY_ACCEPT_CONTENT = ['json']
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_TASK_SERIALIZER = 'json'
 
@@ -145,7 +145,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+            "hosts": [("redis", 6379)],
         },
     },
 }
@@ -156,7 +156,7 @@ CHANNEL_LAYERS = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/',
+        'LOCATION': 'redis://redis:6379/',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
@@ -189,7 +189,7 @@ EMAIL_USE_TLS = email["EMAIL_USE_TLS"]
 SERVER_EMAIL = email.get('SERVER_EMAIL', 'root@localhost')
 DEFAULT_FROM_EMAIL = email.get('DEFAULT_FROM_EMAIL', 'webmaster@localhost')
 
-ADMINS = [(env.str("ADMIN_NAME", "admin"), env.str("ADMIN_EMAIL", "root@localhost"))]
+ADMINS = [(env.str("DJANGO_SUPERUSER_NAME", "admin"), env.str("DJANGO_SUPERUSER_EMAIL", "root@localhost"))]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
