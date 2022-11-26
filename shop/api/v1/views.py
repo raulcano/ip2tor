@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
-from django.utils.encoding import smart_text
+from django.utils.encoding import smart_str
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import permissions, viewsets
 from rest_framework import renderers
@@ -17,7 +17,7 @@ class PlainTextRenderer(renderers.BaseRenderer):
     format = 'txt'
 
     def render(self, data, media_type=None, renderer_context=None):
-        return smart_text(data, encoding=self.charset)
+        return smart_str(data, encoding=self.charset)
 
 
 class TorBridgeViewSet(viewsets.ModelViewSet):
