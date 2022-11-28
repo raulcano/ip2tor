@@ -280,6 +280,10 @@ CHARGED_LNINVOICE_TIMEOUT = env.int('CHARGED_LNINVOICE_TIMEOUT', default=900)
 
 SHOP_BRIDGE_DURATION_GRACE_TIME = env.int('SHOP_BRIDGE_DURATION_GRACE_TIME', default=600)
 
+
+CSRF_TRUSTED_ORIGINS=['http://localhost']
+
+
 # allow for a local file ("django_ip2tor/local_settings.py") to be used to add or override settings
 if os.path.isfile(os.path.join(BASE_DIR, 'django_ip2tor', 'local_settings.py')):
     try:
