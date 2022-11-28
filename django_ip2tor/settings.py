@@ -46,7 +46,6 @@ SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ['*']
-# CSRF_TRUSTED_ORIGINS=['http://localhost:80','http://localhost:8000','http://localhost:8001','http://localhost:8002', 'http://nginx:*']
 CSRF_TRUSTED_ORIGINS=['http://localhost:8000']
 
 # Django logging setup
