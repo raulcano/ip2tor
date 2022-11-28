@@ -46,6 +46,8 @@ SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ['*']
+# CSRF_TRUSTED_ORIGINS=['http://localhost:8000','http://localhost:80','http://localhost:8001','http://localhost:8002']
+CSRF_TRUSTED_ORIGINS=['*']
 
 # Django logging setup
 LOGGING = {
@@ -281,7 +283,7 @@ CHARGED_LNINVOICE_TIMEOUT = env.int('CHARGED_LNINVOICE_TIMEOUT', default=900)
 SHOP_BRIDGE_DURATION_GRACE_TIME = env.int('SHOP_BRIDGE_DURATION_GRACE_TIME', default=600)
 
 
-CSRF_TRUSTED_ORIGINS=['http://localhost']
+
 
 
 # allow for a local file ("django_ip2tor/local_settings.py") to be used to add or override settings
